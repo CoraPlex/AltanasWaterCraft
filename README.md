@@ -77,7 +77,6 @@ Right-click → **Open in Terminal**
 
 ```bash id="a2"}
 git clone --recursive https://github.com/CoraPlex/AltanasWaterCraft.git
-cd AltanasWaterCraft
 ```
 
 Wait until the process finishes.
