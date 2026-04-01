@@ -1,14 +1,21 @@
 # AWC – AltanasWaterCraft
 
 <p align="center">
-  <img src="branding/AWC_final.png" width="700"/>
+  <img src="branding/AWC_final.png" width="500"/>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-active-brightgreen"/>
+  <img src="https://img.shields.io/badge/platform-Windows-blue"/>
+  <img src="https://img.shields.io/badge/base-LandSandBoat-orange"/>
 </p>
 
 ---
 
-Custom Final Fantasy XI Server Base  
+Custom Final Fantasy XI Server Base
 Built on LandSandBoat – controlled, modified, and maintained by CoraPlex & Vec7rex.
 
+---
 
 ## 🪟 Windows Installation Guide
 
@@ -28,9 +35,8 @@ Built on LandSandBoat – controlled, modified, and maintained by CoraPlex & Vec
 
 [![Download Visual Studio](https://img.shields.io/badge/Download-Visual%20Studio-purple?style=for-the-badge\&logo=visualstudio)](https://visualstudio.microsoft.com/)
 
-* 2022 or newer
-* ⚠️ You MUST install:
-  **Desktop development with C++**
+* Version: 2022 or newer
+* ⚠️ REQUIRED: **Desktop development with C++**
 
 ---
 
@@ -56,38 +62,45 @@ Enable **UTF8 character set** during installation
 
 ---
 
-### Download AWC & Setup
+## 📥 Download AWC
 
-Open a **PowerShell/CMD** window and navigate to your chosen install directory.
+Open a **PowerShell / CMD** window:
 
 ```bash
 git clone --recursive https://github.com/CoraPlex/AltanasWaterCraft.git
+cd AltanasWaterCraft
 ```
 
 ---
 
-Install Python requirements:
+## 📦 Install Python Dependencies
 
 ```bash
 py -3 -m pip install -r server/tools/requirements.txt
 ```
-Close **PowerShell/CMD**
 
 ---
 
-### Setup Database
+## ⚙️ Setup Configuration
 
-Open a **PowerShell/CMD** window in your tools folder.
+```cmd
+xcopy server\settings\default\* server\settings /E /I
+```
+
+---
+
+## 🗄 Database Setup
 
 ```bash
+cd server/tools
 py -3 dbtool.py
 ```
 
-Follow instructions to create database (`xidb`)
+Follow the instructions to create the database (`xidb`)
 
 ---
 
-### Build Server
+## 🛠 Build Server
 
 * Open **server folder** in Visual Studio
 * Wait for:
@@ -102,7 +115,7 @@ Set:
 x64-Debug
 ```
 
-Build:
+Then:
 
 ```text
 Build → Build All
@@ -110,8 +123,56 @@ Build → Build All
 
 ---
 
-### ✅ Done
+## ✅ Done
 
 ```text
 Build All succeeded
 ```
+
+---
+
+## 🚀 Why AWC?
+
+* Simplified setup process
+* Clean structure
+* Stable base for custom servers
+* No unnecessary complexity
+* Ready for launcher integration
+
+---
+
+## 📊 Status
+
+Active development
+
+---
+
+## 🙏 Credits
+
+Built on LandSandBoat
+https://github.com/LandSandBoat/server
+
+Maintained by:
+CoraPlex & Vec7rex
+
+---
+
+## 🛠 Troubleshooting
+
+### Python not recognized
+
+Reinstall Python and enable PATH
+
+---
+
+### dbtool fails
+
+Make sure Python dependencies are installed
+
+---
+
+### Build errors
+
+Check Visual Studio C++ workload and CMake
+
+---
