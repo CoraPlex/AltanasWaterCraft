@@ -17,21 +17,20 @@ Built on LandSandBoat – controlled, modified, and maintained by CoraPlex & Vec
 
 ---
 
-## 🪟 Windows Installation Guide
+## 🪟 Windows Installation Guide (AWC)
 
-### Install Requirements
+### 🔹 Requirements
 
-#### 🔹 Git for Windows
+#### Git for Windows
 
 [![Download Git](https://img.shields.io/badge/Download-Git-blue?style=for-the-badge\&logo=git)](https://git-scm.com/download/win)
 
-* Latest version is fine
-* Accept defaults
-* Change default text editor if desired
+* Install latest version
+* Accept default settings
 
 ---
 
-#### 🔹 Visual Studio
+#### Visual Studio
 
 [![Download Visual Studio](https://img.shields.io/badge/Download-Visual%20Studio-purple?style=for-the-badge\&logo=visualstudio)](https://visualstudio.microsoft.com/)
 
@@ -40,84 +39,137 @@ Built on LandSandBoat – controlled, modified, and maintained by CoraPlex & Vec
 
 ---
 
-#### 🔹 MariaDB Server
+#### MariaDB Server
 
 [![Download MariaDB](https://img.shields.io/badge/Download-MariaDB-orange?style=for-the-badge\&logo=mariadb)](https://mariadb.org/download/)
 
 * Use version **10.6.x**
-* Set root password
-* Use UTF8
+* Set a root password
+* Enable UTF8
 
 ⚠️ IMPORTANT:
 Enable **UTF8 character set** during installation
 
 ---
 
-#### 🔹 Python 3.12
+#### Python 3.12
 
 [![Download Python](https://img.shields.io/badge/Download-Python-yellow?style=for-the-badge\&logo=python)](https://www.python.org/downloads/release/python-3120/)
 
 * Required version: **3.12**
-* ✔ Add python.exe to PATH
+* ✔ Add Python to PATH
+
+---
+
+## 📁 Create Server Folder
+
+Create a new folder (no spaces in the name):
+
+```text id="a1"}
+C:\SERVERNAME
+```
+
+Right-click → **Open in Terminal**
 
 ---
 
 ## 📥 Download AWC
 
-Open a **PowerShell / CMD** window:
-
-```bash
+```bash id="a2"}
 git clone --recursive https://github.com/CoraPlex/AltanasWaterCraft.git
 cd AltanasWaterCraft
 ```
 
+Wait until the process finishes.
+
 ---
 
-## 📦 Install Python Dependencies
+## ⚙️ Configure Settings
 
-```bash
-py -3 -m pip install -r server/tools/requirements.txt
+Copy all `.lua` files from:
+
+```text id="a3"}
+server\settings\default
+```
+
+to:
+
+```text id="a4"}
+server\settings
 ```
 
 ---
 
-## ⚙️ Setup Configuration
+Open:
 
-```cmd
-xcopy server\settings\default\* server\settings /E /I
+```text id="a5"}
+server\settings\Network.lua
+```
+
+Edit:
+
+```lua id="a6"}
+SQL_PASSWORD = 'YOUR_PASSWORD'
 ```
 
 ---
 
 ## 🗄 Database Setup
 
-```bash
+```bash id="a7"}
 cd server/tools
 py -3 dbtool.py
 ```
 
-Follow the instructions to create the database (`xidb`)
+Enter MariaDB path:
+
+```text id="a8"}
+C:\Program Files\MariaDB 10.6\bin
+```
+
+Confirm database creation:
+
+```text id="a9"}
+y
+```
+
+Then exit:
+
+```text id="a10"}
+q
+```
 
 ---
 
 ## 🛠 Build Server
 
-* Open **server folder** in Visual Studio
-* Wait for:
+* Open **Visual Studio**
+* Select: **Open Folder**
+* Choose:
 
-```text
+```text id="a11"}
+C:\SERVERNAME\AltanasWaterCraft\server
+```
+
+Wait until:
+
+```text id="a12"}
 CMake generation finished
 ```
 
+---
+
+## ▶️ Build
+
 Set:
 
-```text
+```text id="a13"}
 x64-Debug
 ```
 
 Then:
 
-```text
+```text id="a14"}
 Build → Build All
 ```
 
@@ -125,7 +177,7 @@ Build → Build All
 
 ## ✅ Done
 
-```text
+```text id="a15"}
 Build All succeeded
 ```
 
@@ -167,7 +219,7 @@ Reinstall Python and enable PATH
 
 ### dbtool fails
 
-Make sure Python dependencies are installed
+Ensure Python dependencies are installed
 
 ---
 
