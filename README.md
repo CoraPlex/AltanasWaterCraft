@@ -6,95 +6,95 @@
 
 ---
 
-**AWC is a streamlined Final Fantasy XI server base built on LandSandBoat.
-Designed for simplicity, stability, and easy setup.**
+Custom Final Fantasy XI Server Base  
+Built on LandSandBoat – controlled, modified, and maintained by CoraPlex & Vec7rex.
+
+
+## 🪟 Windows Installation Guide
+
+### Install Requirements
+
+#### 🔹 Git for Windows
+
+[![Download Git](https://img.shields.io/badge/Download-Git-blue?style=for-the-badge\&logo=git)](https://git-scm.com/download/win)
+
+* Latest version is fine
+* Accept defaults
+* Change default text editor if desired
 
 ---
 
-## 📌 Navigation
+#### 🔹 Visual Studio
 
-* [🪟 Windows Installation Guide](#-windows-installation-guide-awc)
-* [🚀 Why AWC?](#-why-awc)
-* [📊 Status](#-status)
-* [🙏 Credits](#-credits)
-* [🛠 Troubleshooting](#-troubleshooting)
+[![Download Visual Studio](https://img.shields.io/badge/Download-Visual%20Studio-purple?style=for-the-badge\&logo=visualstudio)](https://visualstudio.microsoft.com/)
 
----
-
-## 🪟 Windows Installation Guide (AWC)
-
-### 🔹 Requirements
-
-#### Git
-
-https://git-scm.com/download/win
-
-#### Visual Studio
-
-https://visualstudio.microsoft.com/
-
-⚠️ REQUIRED:
-**Desktop development with C++**
+* 2022 or newer
+* ⚠️ You MUST install:
+  **Desktop development with C++**
 
 ---
 
-#### MariaDB
+#### 🔹 MariaDB Server
 
-https://mariadb.org/download/
+[![Download MariaDB](https://img.shields.io/badge/Download-MariaDB-orange?style=for-the-badge\&logo=mariadb)](https://mariadb.org/download/)
 
-* Use version 10.6.x
+* Use version **10.6.x**
 * Set root password
-* Enable UTF8
+* Use UTF8
+
+⚠️ IMPORTANT:
+Enable **UTF8 character set** during installation
 
 ---
 
-#### Python 3.12
+#### 🔹 Python 3.12
 
-https://www.python.org/downloads/release/python-3120/
+[![Download Python](https://img.shields.io/badge/Download-Python-yellow?style=for-the-badge\&logo=python)](https://www.python.org/downloads/release/python-3120/)
 
-✔ Add to PATH
+* Required version: **3.12**
+* ✔ Add python.exe to PATH
 
 ---
 
-## 📥 Installation
+### Download AWC & Setup
 
-Open CMD or PowerShell:
+Open a **PowerShell/CMD** window and navigate to your chosen install directory.
 
 ```bash
 git clone --recursive https://github.com/CoraPlex/AltanasWaterCraft.git
-cd AltanasWaterCraft
 ```
 
 ---
 
-## 📦 Install Dependencies
+Install Python requirements:
 
 ```bash
-py -3 -m pip install -r tools/requirements.txt
+py -3 -m pip install -r server/tools/requirements.txt
 ```
+Close **PowerShell/CMD**
 
 ---
 
-## ⚙️ Setup Configuration
+### Setup Database
 
-```cmd
-xcopy settings\default\* settings /E /I
-```
-
----
-
-## 🗄 Database Setup
+Open a **PowerShell/CMD** window in your tools folder.
 
 ```bash
-py -3 tools/dbtool.py
+py -3 dbtool.py
 ```
+
+Follow instructions to create database (`xidb`)
 
 ---
 
-## 🛠 Build Server
+### Build Server
 
-* Open project folder in Visual Studio
-* Wait for: **CMake generation finished**
+* Open **server folder** in Visual Studio
+* Wait for:
+
+```text
+CMake generation finished
+```
 
 Set:
 
@@ -102,7 +102,7 @@ Set:
 x64-Debug
 ```
 
-Then:
+Build:
 
 ```text
 Build → Build All
@@ -110,56 +110,8 @@ Build → Build All
 
 ---
 
-## ✅ Done
+### ✅ Done
 
 ```text
 Build All succeeded
 ```
-
----
-
-## 🚀 Why AWC?
-
-* Simplified setup process
-* Clean structure
-* Stable base for custom servers
-* No unnecessary complexity
-* Ready for launcher integration
-
----
-
-## 📊 Status
-
-Active development
-
----
-
-## 🙏 Credits
-
-Built on LandSandBoat
-https://github.com/LandSandBoat/server
-
-Maintained by:
-CoraPlex & Vec7rex
-
----
-
-## 🛠 Troubleshooting
-
-### Python not recognized
-
-Reinstall Python and enable PATH option
-
----
-
-### dbtool fails
-
-Make sure dependencies are installed
-
----
-
-### Build errors
-
-Check Visual Studio C++ workload and CMake
-
----
