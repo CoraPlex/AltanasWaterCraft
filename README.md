@@ -1,41 +1,165 @@
-<p align="center">
-    <img width="256" height="256" src="res/lsb_logo_circle.png">
-    <h1 align="center">LandSandBoat</h1>
-</p>
+# AWC – AltanasWaterCraft
 
 <p align="center">
-An open-source server emulator for FFXI.
+  <img src="branding/AWC_final.png" width="700"/>
 </p>
 
-<p align="center">
-<a href="https://github.com/LandSandBoat/server/actions/workflows/build.yml"><img src="https://github.com/LandSandBoat/server/actions/workflows/build.yml/badge.svg?branch=base"/></a>
-<a href="https://github.com/LandSandBoat/server/actions/workflows/test.yml"><img src="https://github.com/LandSandBoat/server/actions/workflows/test.yml/badge.svg?branch=base"/></a>
-<a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg"/></a>
-<a href="https://github.com/LandSandBoat/server/pulls"><img src="https://img.shields.io/badge/Contributions-welcome-brightgreen.svg?style=flat"/></a>
-</p>
+---
 
-## Getting Started
+**AWC is a streamlined Final Fantasy XI server base built on LandSandBoat.
+Designed for simplicity, stability, and easy setup.**
 
-A [quick start guide](https://github.com/LandSandBoat/server/wiki/Quick-Start-Guide), the [frequently asked questions](https://github.com/LandSandBoat/server/wiki/Frequently-Asked-Questions), and a table of "[what works](https://github.com/LandSandBoat/server/wiki/What-Works)" are all available on [our wiki](https://github.com/LandSandBoat/server/wiki).
+---
 
-## Interacting with LandSandBoat
+## 📌 Navigation
 
-### Crashes, warnings, errors, bugs, gameplay issues, visual issues, etc.
+* [🪟 Windows Installation Guide](#-windows-installation-guide-awc)
+* [🚀 Why AWC?](#-why-awc)
+* [📊 Status](#-status)
+* [🙏 Credits](#-credits)
+* [🛠 Troubleshooting](#-troubleshooting)
 
-Please create a new issue in the [issues tab](https://github.com/LandSandBoat/server/issues) after searching to see if your issue is already logged.
+---
 
-### Balance discussion, technical discussion, meta discussions, etc.
+## 🪟 Windows Installation Guide (AWC)
 
-Discussions are similar to forum posts. Please open a new discussion post in the [discussions tab](https://github.com/LandSandBoat/server/discussions) for less directed and more open-ended conversation than issues.
+### 🔹 Requirements
 
-*If you are encountering an issue, please open an issue and not a discussion!* It's much easier for us to track and you're more likely to get resolution through an issue.
+#### Git
 
-## LICENSE
+https://git-scm.com/download/win
 
-LandSandBoat is licensed under [GNU GPL v3](https://github.com/LandSandBoat/server/blob/base/LICENSE)
+#### Visual Studio
 
-## Thanks
+https://visualstudio.microsoft.com/
 
-Thanks to all contributors past and present, we wouldn't be here without you!
+⚠️ REQUIRED:
+**Desktop development with C++**
 
-Thanks to GitHub for hosting us, and for all the CI minutes we use!
+---
+
+#### MariaDB
+
+https://mariadb.org/download/
+
+* Use version 10.6.x
+* Set root password
+* Enable UTF8
+
+---
+
+#### Python 3.12
+
+https://www.python.org/downloads/release/python-3120/
+
+✔ Add to PATH
+
+---
+
+## 📥 Installation
+
+Open CMD or PowerShell:
+
+```bash
+git clone --recursive https://github.com/CoraPlex/AltanasWaterCraft.git
+cd AltanasWaterCraft
+```
+
+---
+
+## 📦 Install Dependencies
+
+```bash
+py -3 -m pip install -r tools/requirements.txt
+```
+
+---
+
+## ⚙️ Setup Configuration
+
+```cmd
+xcopy settings\default\* settings /E /I
+```
+
+---
+
+## 🗄 Database Setup
+
+```bash
+py -3 tools/dbtool.py
+```
+
+---
+
+## 🛠 Build Server
+
+* Open project folder in Visual Studio
+* Wait for: **CMake generation finished**
+
+Set:
+
+```text
+x64-Debug
+```
+
+Then:
+
+```text
+Build → Build All
+```
+
+---
+
+## ✅ Done
+
+```text
+Build All succeeded
+```
+
+---
+
+## 🚀 Why AWC?
+
+* Simplified setup process
+* Clean structure
+* Stable base for custom servers
+* No unnecessary complexity
+* Ready for launcher integration
+
+---
+
+## 📊 Status
+
+Active development
+
+---
+
+## 🙏 Credits
+
+Built on LandSandBoat
+https://github.com/LandSandBoat/server
+
+Maintained by:
+CoraPlex & Vec7rex
+
+---
+
+## 🛠 Troubleshooting
+
+### Python not recognized
+
+Reinstall Python and enable PATH option
+
+---
+
+### dbtool fails
+
+Make sure dependencies are installed
+
+---
+
+### Build errors
+
+Check Visual Studio C++ workload and CMake
+
+---
